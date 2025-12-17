@@ -1,16 +1,16 @@
 user_prompt = input("Enter your data here: ")
 def validate_input(user_prompt,validators):
     while True:
-        if validators(user_prompt):
-            return True
-        else:
-            return False
+        for validator in validators:
+            if not validator(user_prompt):
+                return False
+        return True
         
 def is_numeric(n):
-    for n in user_prompt:
-        if n.isdigit():
-            return True
-    return False
+    for char in n:
+        if not char.isdigit():
+            return False
+    return True
 
 def is_in_range(n):
     num = int(n)
@@ -20,11 +20,10 @@ def is_in_range(n):
         return False
     
 def no_space(space):
-    for space in user_prompt:
-        if space != " ":
-            return True
-        else:
+    for char in space:
+        if char == " ":
             return False
+    return True
         
 result = [is_numeric, is_in_range,no_space]
 user_data = validate_input(user_prompt,result)
