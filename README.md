@@ -1,17 +1,39 @@
 # Project 01: Dynamic Input Validator
 
-## Overview
-This project creates a strong input validation system using higher-order functions. It lets developers send a list of functional rules to a single input handler, which ensures data integrity before the rest of the program runs.
+Overview
 
-## Technical Specs
-- **Higher-Order Functions:** Passing functions as arguments in a list.
-- **Looping:** Infinite `while` loops with conditional `break` or `return` points.
-- **Predicate Logic:** Writing small, single-responsibility functions that return Booleans.
+This project creates a modular and reusable input validation system using higher-order functions in Python. Validation rules are provided as callable functions, enabling flexible and scalable input checks before processing the data.
 
-## Features
-- Multi-stage validation logic.
-- Real-time error feedback for specific failed rules.
-- Reusable across different data types (Strings, Ints).
+Key Concepts Used
 
-## Usage
-Run the script and follow the prompts. The system will reject any input that contains spaces, isn’t a number, or is outside the 1-100 range.
+Higher-order functions (functions as arguments)  
+Clean, single-responsibility validation rules  
+Defensive programming  
+Boolean predicate logic  
+
+Features
+
+Supports multiple validation rules applied one after another  
+Easily extendable by adding new validator functions  
+Prevents invalid input such as:  
+- Non-numeric values  
+- Numbers outside the range 1 to 100  
+- Inputs containing spaces  
+
+How It Works
+
+User input is collected.  
+A list of validator functions is given to a central validation handler.  
+Each validator checks the input and returns True or False.  
+The input is accepted only if all validation rules pass.  
+
+Example Validators
+
+Numeric validation  
+Range validation (1 to 100)  
+Whitespace detection  
+
+Usage
+
+Run the script and enter a value when prompted.  
+The program will indicate whether the input is valid based on the applied rules.
